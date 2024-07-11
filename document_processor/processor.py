@@ -157,7 +157,7 @@ def get_document_meta_data(document: Path | PdfReader) -> dict:
 
 
 
-def extract_data_from_page(reader: PdfReader, page_number: int, storage_path: Path =  Path('./images')):
+def extract_data_from_page(reader: PdfReader | Path, page_number: int, storage_path: Path =  Path('./images')):
     """
     Extract text and images from a specified page of a PDF document.
 
@@ -212,6 +212,9 @@ def extract_data_from_page(reader: PdfReader, page_number: int, storage_path: Pa
         raise ValueError("Page number should be greater than 0")
     if reader is None:
         return None
+    
+    if isinstance(reader, Path):
+        reader = read_document(reader)
 
     meta_data = get_document_meta_data(reader)
     meta_data['page'] = page_number + 1
