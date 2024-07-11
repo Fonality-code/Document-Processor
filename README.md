@@ -18,6 +18,8 @@ A document processing library for extracting metadata, text, and images from PDF
 You can install the library directly from GitHub:
 
 ```
+
+```
 pip install git+https://github.com/Fonality-code/Document-Processor
 ```
 
