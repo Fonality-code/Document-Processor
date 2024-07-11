@@ -1,0 +1,2 @@
+class ImageExtractionError(Exception):
+    pass
