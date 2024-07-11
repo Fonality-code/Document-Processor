@@ -268,7 +268,7 @@ def extract_image(page, storage_path: Path = Path(__file__).parent):
     images = []
     for image_file_object in page.images:
         image_path = storage_path / f"{count}_{image_file_object.name}"
-        print(image_path)
+
         try:
             with open(image_path, "wb") as fp:
                 fp.write(image_file_object.data)
